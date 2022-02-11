@@ -108,8 +108,20 @@ res.send(stringForResponse)
 })
 
 app.route("/").get(function ng(req, res) {
-  res.send("<h2>plate-packer API!</h2><br>Please visit /plates, and add the string to be tested as a url param called 'data'<br>e.g. -- /plates?data=sanma-5:10")
-})
+  res.send(`
+  
+  <h2>Plate Packer API (Part 1)</h2>
+  For general testing, please visit /plates, and add the string to be tested as a url param called 'data'
+  <br>Example: /plates?data=sanma-5:10
+  <h2>Test Case Results</h2>
+  <p>Here are the test cases. Please click the links to send orders to the endpoint and see the results:
+  <p><a href="https://aws-amplify-alternate.dt.r.appspot.com/plates?data=date-5:62,10:11,20:3">date-5:62,10:11,20:3</a><br>
+  <a href="https://aws-amplify-alternate.dt.r.appspot.com/plates?data=tomizawa-5:33,10:33,20:30">tomizawa-5:33,10:33,20:30</a><br>
+  <a href="https://aws-amplify-alternate.dt.r.appspot.com/plates?data=wakabayashi-5:50,20:50">wakabayashi-5:50,20:50</a><br>
+  <a href="https://aws-amplify-alternate.dt.r.appspot.com/plates?data=kasuga-5:10,10:30,20:19">kasuga-5:10,10:30,20:19</a>
+  <h2>Upgrade of the System (Part 2)</h2>
+  For a general outline of how the system might be upgraded, please <a href="https://docs.google.com/presentation/d/e/2PACX-1vTWXMqdjXps8gydEugVrCD1V1WUUWpYE-PBmEcS4QKU0hw-ueZSqQwC7NrFsYhmJ1cvf8D3C6VtIRen/pub?start=false&loop=false&delayms=60000" target="_blank">see this link</a>.<br>`
+)})
 
 
 
