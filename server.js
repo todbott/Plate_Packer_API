@@ -36,7 +36,7 @@ const plates = {
 app.route("/plates/:data?").get(function platePack(req, res) {
 
   // Ideally, we'd get the data as a JSON object, but I've made it a url param just for ease of testing
-  var allData = req.query.data;
+  let allData = req.query.data;
 
   // We split it to get the customer name, and weights and quantities of the plates requested
   let customerName = allData.split("-")[0];
@@ -162,10 +162,11 @@ function chunk(fa, chunked) {
   return chunked
 }
 
+// Here is the actual endpoint for the recursive version of the system
 app.route("/recursive_plates/:data?").get(function recursivePlatePack(req, res) {
 
   // Ideally, we'd get the data as a JSON object, but I've made it a url param just for ease of testing
-  var allData = req.query.data;
+  let allData = req.query.data;
 
   // We split it to get the customer name, and weights and quantities of the plates requested
   let customerName = allData.split("-")[0];
@@ -183,11 +184,11 @@ app.route("/recursive_plates/:data?").get(function recursivePlatePack(req, res) 
   }
 
   // These are variables we'll use to store values in our recursive functions
-  var sorted =  []
-  var chunked = []
+  let sorted =  []
+  let chunked = []
 
   // Turn the nested arrays contained in 'allPlates' into a long, sorted, repeating array
-  var longAndSorted = oneLongArray(allPlates, sorted)
+  let longAndSorted = oneLongArray(allPlates, sorted)
 
   // Then, break that array into many sub-arrays (each of which represents the contents of
   // one box)
@@ -206,7 +207,7 @@ app.route("/").get(function ng(req, res) {
 })
 
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
